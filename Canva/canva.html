@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CANVAS I</title>
+</head>
+<body>
+
+    <canvas id="juego" width="500" height="400" style="border: 1px solid red"></canvas>
+
+    <script>
+        let canvas = document.getElementById("juego");
+        let ctx = canvas.getContext("2d"); // contexto del cuadro generado
+
+        let a = 400;
+        let b = 100;
+        
+        let x = 50;
+        let y = 50;
+        let mx = 2; //para el movimiento en el eje x
+        let my = 2;
+
+        function reboteCuadro() {
+            // Borrar el canvas
+            ctx.clearRect(0,0,canvas.width,canvas.height); // 0,0 es la primera posición: la esquina superior izquierda
+
+            // Dibujar cuadro
+            ctx.fillStyle = "blue";
+            ctx.fillRect(x,y,50,50);
+
+            // Dibujar círculo
+            ctx.beginPath();
+            ctx.arc(a,b,25,0,2*Math.PI);
+            ctx.fillStyle = "red";
+            ctx.fill();
+
+            // Mover el cuadro
+            x += mx;
+            y += my;
+
+            // Crear rebotes
+            if (x + 50 > canvas.width || x < 0) {
+                mx = -mx; // Esto es para que cambie de dirección
+            };
+
+            if (y + 50 > canvas.height || y < 0) {
+                my = -my;
+            };
+
+
+
+            requestAnimationFrame(reboteCuadro);
+
+        };
+
+        reboteCuadro();
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
