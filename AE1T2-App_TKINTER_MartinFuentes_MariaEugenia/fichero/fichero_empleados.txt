@@ -1,0 +1,16 @@
+MARTIN, MARIA
+Plaza Anton Berbenero
+NIF 1236548		NAF 354354354		CCC 31354354
+CONCEPTOS SALARIALES --------------------------------------------------
+SALARIO ANUAL: 65000.0€		PAGAS: 12		IRPF: 2.0%		SEGURIDAD SOCIAL: 23.0€
+
+================================================================================
+
+FUENTES, LOLO
+Plaza Anton Berbenero
+NIF 12365489		NAF 354354		CCC 313543545
+CONCEPTOS SALARIALES --------------------------------------------------
+SALARIO ANUAL: 65000.0€		PAGAS: 14		IRPF: 2.0%		SEGURIDAD SOCIAL: 25.0€
+
+================================================================================
+
