@@ -39,7 +39,7 @@ def crear_tabla():
     conexion.commit()
     conexion.close()
 
-def darAltaEmpleado(nombre, fecha_inicio, fecha_nacimiento, direccion, nif, banco, nrSS, genero, dept, puesto, telefono, salarioAnual, irpf, email, pagExt, ss):
+def darAltaEmpleado(nombre, fecha_inicio, fecha_nacimiento, direccion, nif, banco, nrSS, genero, dept, puesto, telefono, salarioAnual, irpf, email, pagExt, ss):   
     conexion = sqlite3.connect(db_path)
     cursor = conexion.cursor()
 
@@ -60,6 +60,14 @@ def darAltaEmpleado(nombre, fecha_inicio, fecha_nacimiento, direccion, nif, banc
     
 
 def generar_fichero_empleados():
+    """
+        Función para generar un archivo .txt a partir de los datos guardados en la bbdd previamente.
+        En caso de no encontrar ningún registro, muestra un mensaje avisando al usuario.
+        La ruta del fichero es específica del proyecto. En caso de querer otra ruta y otro nombre, habría que especificarlo.
+        Si se hubiera realizado ya la generación del fichero previamente, esta función sobreescribirá el fichero con los datos
+        que sean actuales a la hora de pulsar el botón.
+        Además se ha incluido un comando para que el archivo se abra una vez que se haya generado.
+    """
     conexion = sqlite3.connect(db_path)
     cursor = conexion.cursor()
     

@@ -186,7 +186,9 @@ def abrir_ventana_altas():
     ##########################################################################
 
     def validar_fecha(fecha):
-        """ Verifica que la fecha tenga el formato YYYY-MM-DD y sea válida """
+        """ 
+            Esta función verifica que la fecha tenga el formato YYYY-MM-DD y sea válida 
+        """
         if not re.match(r"^\d{4}-\d{2}-\d{2}$", fecha):  # Expresión regular para formato YYYY-MM-DD
             return False
         try:
@@ -196,6 +198,16 @@ def abrir_ventana_altas():
             return False
     
     def btnInsertar():
+        """
+            Esta función comprueba primero con la función de validar_fecha que los datos de fechas sean correctos antes de
+            empaquetarlos para la función de insertar datos del archivo database.py
+            Si las fechas son válidas, coge el resto de datos de los campos de entrada (tanto de texto como de ComboBox).
+            Seguidamente comprueba que todos los campos hayan sido rellenados y se crea una variable que será el resultado de 
+            pasar los datos a la función de darAltaEmpleado() del archivo database.py.
+            El * se usa para desempaquetar la tupla en argumentos individuales y que se puedan asociar a los parámetros requeridos
+            en la otra función.
+            El usuario recibe un mensaje informativo.
+        """
         if not (validar_fecha(entryFechaIni.get()) and validar_fecha(entryFechaNac.get())):
             lbl_status.config(text="⚠️ Formato de fecha incorrecto. Usa YYYY-MM-DD.", fg="red")
         else:
