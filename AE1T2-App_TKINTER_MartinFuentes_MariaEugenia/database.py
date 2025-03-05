@@ -113,4 +113,6 @@ def generar_fichero_empleados():
 
         return "Fichero generado y abierto correctamente."
 # Ejecutar la creación de tabla al importar este módulo
-crear_tabla()
+# Evita ejecutar `crear_tabla()` al importar `database.py`
+if __name__ == "__main__":
+    crear_tabla()

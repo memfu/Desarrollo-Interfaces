@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="María Eugenia Martín Fuentes">
+    <meta name="description" content="Examen 2a evaluación - CANVA">
+    <title>CANVAS EXAMEN</title>
+    <!--CSS interno para centrar el canvas-->
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!--Canvas con un borde naranja de 4px y dimensiones de 700x400 píxeles.-->
+    <canvas id="juego" width="700" height="400" style="border: 4px solid orange"></canvas>
+    <script>
+        let canvas = document.getElementById("juego");
+        let ctx = canvas.getContext("2d"); // contexto del cuadro generado
+
+        // Estas son las variables para la posición del círculo rojo
+        let a = 200;
+        let b = 200;
+        // Estas son las variables que determinan la velocidad de movimiento en el eje b
+        let mb = 2;
+        
+        // Estas son las variables para la posición del circulo azul
+        let x = 300;
+        let y = 300;
+        // Estas son las variables que determinan la velocidad de movimiento en el eje x
+        let mx = 3; 
+
+            function reboteCirculos() {
+                // Borrar el canvas
+                ctx.clearRect(0,0,canvas.width,canvas.height); // 0,0 es la primera posición: la esquina superior izquierda
+
+                // Dibuja el circulo rojo con un radio de 25 píxeles en la posición a,b
+                ctx.beginPath();
+                ctx.arc(a,b,25,0,2*Math.PI);
+                ctx.fillStyle = "red";
+                ctx.fill();
+
+                // Dibuja el círculo azul con un radio de 10 píxeles en la posición x,y
+                ctx.beginPath();
+                ctx.arc(x,y,10,0,2*Math.PI);
+                ctx.fillStyle = "blue";
+                ctx.fill();
+
+                // Actualiza la posición del círculo rojo (de arriba a abajo) en cada fotograma
+                b += mb;
+
+                // Actualiza la posición del círculo azul (de arriba a abajo) en cada fotograma
+                x += mx;
+
+                // Crea rebotes para el círculo rojo usando su diámetro para tener la referencia del borde
+                if (b + 25 > canvas.height || b - 25 < 0) {
+                    mb = -mb; // Esto es para que cambie de dirección
+                };
+
+                // Crea rebotes para el círculo azul usando su diámetro para tener la referencia del borde
+                if (x + 10 > canvas.width || x - 10 < 0) {
+                    mx = -mx; // Esto es para que cambie de dirección
+                };
+
+                requestAnimationFrame(reboteCirculos);
+            };
+        reboteCirculos();
+    </script>
+    
+</body>
+</html>
