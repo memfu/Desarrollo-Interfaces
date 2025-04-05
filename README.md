@@ -6,4 +6,4 @@ En este repositorio iré guardando todas las actividades que vaya haciendo para 
 Este repositorio contiene material protegido por derechos de autor, incluidos código, diseños y otros archivos.  
 No se permite el uso, reproducción, modificación o distribución de ningún contenido de este repositorio sin el consentimiento explícito del autor.  
   
-Para obtener permiso, por favor contacta a: koalas-rabe0v@icloud.com.
+Para obtener permiso, por favor contacta a: luke-geschickt.02@icloud.com.
